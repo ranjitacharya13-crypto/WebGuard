@@ -23,9 +23,11 @@ Copy-Item .\backend\.env.example .\backend\.env
 Generate and set a private JWT signing secret in `backend\.env` (do not commit that file):
 
 ```powershell
-$secret = node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"
-(Get-Content .\backend\.env) -replace '^JWT_SECRET=.*$', "JWT_SECRET=$secret" | Set-Content .\backend\.env
+$secret = node -p "require('node:crypto').randomBytes(32).toString('hex')"
+notepad .\backend\.env
 ```
+
+In Notepad, replace `JWT_SECRET=replace-with-at-least-32-random-characters` with `JWT_SECRET=` followed by the value printed by the first command, then save and close the file. Keep `.env` private.
 
 Initialize the local database by starting the API once. The versioned migration runs automatically and creates `backend/data/webguard.db`:
 
