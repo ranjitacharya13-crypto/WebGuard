@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <meta name="description" content="A private, practical dashboard for building safer everyday web habits.">
+    <title>WebGuard — Safer, one step at a time</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#overview" aria-label="WebGuard home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M16 3.5 26 7v7.2c0 6.2-4.1 11.6-10 14.3C10.1 25.8 6 20.4 6 14.2V7l10-3.5Z" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"/>
+              <path d="m11.5 15.8 3 3 6-6.2" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>webguard<span class="brand-dot">.</span></span>
+        </a>
+
+        <div class="nav-label">WORKSPACE</div>
+        <nav class="navigation">
+          <a class="nav-link active" href="#overview" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
+            Overview
+          </a>
+          <a class="nav-link" href="#checklist">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 6.5h11M8.5 12h11M8.5 17.5h11"/><path d="m3.5 6.5 1 1 2-2M3.5 12l1 1 2-2M3.5 17.5l1 1 2-2"/></svg>
+            Safety checklist
+          </a>
+          <a class="nav-link" href="#tools">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5M8.2 10.8h5.2M10.8 8.2v5.2"/></svg>
+            Quick checks
+          </a>
+        </nav>
+
+        <div class="sidebar-note">
+          <span class="note-icon" aria-hidden="true">✦</span>
+          <p><strong>Privacy first</strong><br>Your checks run in this browser. Nothing is sent to a server.</p>
+        </div>
+        <div class="sidebar-footer">
+          <span class="status-dot" aria-hidden="true"></span>
+          All systems local
+        </div>
+      </aside>
+
+      <main id="overview" class="main-content">
+        <header class="topbar">
+          <div class="breadcrumb"><span>Workspace</span><span class="breadcrumb-separator">/</span><strong>Overview</strong></div>
+          <div class="topbar-right">
+            <span class="today-label" id="today-label"></span>
+            <span class="avatar" aria-label="Guest profile">G</span>
+          </div>
+        </header>
+
+        <section class="welcome-section">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> YOUR PERSONAL SAFETY SPACE</p>
+            <h1>A safer web starts<br class="mobile-break"> with <span>small steps.</span></h1>
+            <p class="welcome-copy">A few thoughtful habits go a long way. See what you can do today.</p>
+          </div>
+          <div class="welcome-art" aria-hidden="true">
+            <div class="art-orbit orbit-one"></div>
+            <div class="art-orbit orbit-two"></div>
+            <div class="art-shield">
+              <svg viewBox="0 0 64 64" fill="none">
+                <path d="M32 7 51 14v13.7c0 11.8-7.8 22-19 27.3-11.2-5.3-19-15.5-19-27.3V14l19-7Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="m23.5 31.5 5.5 5.5 12-12.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="art-spark spark-one">✦</span>
+            <span class="art-spark spark-two">✧</span>
+          </div>
+        </section>
+
+        <section class="overview-grid" aria-label="Safety progress">
+          <article class="card progress-card">
+            <div class="card-heading">
+              <div>
+                <p class="card-kicker">YOUR DAILY PLAN</p>
+                <h2>Safety checklist</h2>
+              </div>
+              <span class="icon-badge lavender" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="m5 12.5 4.3 4.3L19 7"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>
+              </span>
+            </div>
+            <div class="progress-summary">
+              <div class="progress-copy"><strong id="completed-count">0 of 4</strong><span>steps completed</span></div>
+              <span class="progress-percent" id="progress-percent">0%</span>
+            </div>
+            <div class="progress-track" role="progressbar" aria-label="Daily safety checklist" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0" id="progress-track">
+              <span class="progress-fill" id="progress-fill"></span>
+            </div>
+            <a class="text-link" href="#checklist">View your checklist <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card tip-card">
+            <div class="tip-topline">
+              <span class="tip-label"><span class="tip-spark" aria-hidden="true">✦</span> TODAY'S TIP</span>
+              <span class="tip-number">01 / 04</span>
+            </div>
+            <div class="tip-content">
+              <div class="tip-illustration" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <rect x="13" y="27" width="38" height="29" rx="6" fill="currentColor" opacity=".14"/>
+                  <path d="M21 27v-8a11 11 0 0 1 22 0v8M17 27h30a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H17a4 4 0 0 1-4-4V31a4 4 0 0 1 4-4Z" stroke="currentColor" stroke-width="2.5"/>
+                  <circle cx="32" cy="39" r="3" fill="currentColor"/>
+                  <path d="M32 42v5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <h2>Make every password unique.</h2>
+                <p>Reusing a password can put multiple accounts at risk. A password manager can help you create and remember unique ones.</p>
+              </div>
+            </div>
+            <a class="text-link" href="#password-check">Check a password locally <span aria-hidden="true">→</span></a>
+          </article>
+        </section>
+
+        <section id="checklist" class="checklist-section">
+          <div class="section-heading">
+            <div>
+              <p class="card-kicker">BUILD GOOD HABITS</p>
+              <h2>Your safety checklist</h2>
+            </div>
+            <span class="section-count" id="section-count">0 / 4 done</span>
+          </div>
+          <div class="checklist-grid">
+            <label class="check-item">
+              <input type="checkbox" class="check-input">
+              <span class="checkmark" aria-hidden="true"></span>
+              <span class="check-item-icon mint" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg>
+              </span>
+              <span class="check-item-copy"><strong>Use unique passwords</strong><span>Give each account its own password.</span></span>
+              <span class="item-arrow" aria-hidden="true">↗</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="check-input">
+              <span class="checkmark" aria-hidden="true"></span>
+              <span class="check-item-icon peach" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3 20 6v5.8c0 5-3.3 9.3-8 11.2-4.7-1.9-8-6.2-8-11.2V6l8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+              </span>
+              <span class="check-item-copy"><strong>Turn on two-step sign-in</strong><span>Add another layer to important accounts.</span></span>
+              <span class="item-arrow" aria-hidden="true">↗</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="check-input">
+              <span class="checkmark" aria-hidden="true"></span>
+              <span class="check-item-icon blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M3 12s3.3-6 9-6 9 6 9 6-3.3 6-9 6-9-6-9-6Z"/><circle cx="12" cy="12" r="2.5"/></svg>
+              </span>
+              <span class="check-item-copy"><strong>Pause before you click</strong><span>Check links and sender details first.</span></span>
+              <span class="item-arrow" aria-hidden="true">↗</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" class="check-input">
+              <span class="checkmark" aria-hidden="true"></span>
+              <span class="check-item-icon yellow" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4m12.8 12.8 1.4 1.4M3 12h2m14 0h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/><circle cx="12" cy="12" r="5"/></svg>
+              </span>
+              <span class="check-item-copy"><strong>Update your devices</strong><span>Install updates when they become available.</span></span>
+              <span class="item-arrow" aria-hidden="true">↗</span>
+            </label>
+          </div>
+          <p class="checklist-footnote">Your progress only lasts for this visit and is not saved.</p>
+        </section>
+
+        <section id="tools" class="tools-section">
+          <div class="section-heading">
+            <div>
+              <p class="card-kicker">PRIVATE BY DESIGN</p>
+              <h2>Quick checks</h2>
+            </div>
+            <span class="privacy-pill"><span class="status-dot" aria-hidden="true"></span> Runs on your device</span>
+          </div>
+          <div class="tools-grid">
+            <article class="card tool-card">
+              <div class="tool-title-row">
+                <span class="tool-icon blue" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5M8.2 10.8h5.2"/></svg>
+                </span>
+                <div><h3>Look over a link</h3><p>Check a link's format before opening it.</p></div>
+              </div>
+              <form id="link-form" class="tool-form" novalidate>
+                <label class="sr-only" for="link-input">Link to check</label>
+                <input id="link-input" type="text" inputmode="url" autocomplete="url" placeholder="Paste or type a link">
+                <button class="button button-primary" type="submit">Review link</button>
+              </form>
+              <p class="tool-disclaimer">This only checks visible URL details. It cannot determine whether a site is safe.</p>
+              <div id="link-result" class="result-box" aria-live="polite" hidden></div>
+            </article>
+
+            <article id="password-check" class="card tool-card">
+              <div class="tool-title-row">
+                <span class="tool-icon lavender" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg>
+                </span>
+                <div><h3>Password strength guide</h3><p>Get a quick estimate without sending it anywhere.</p></div>
+              </div>
+              <form id="password-form" class="tool-form password-form" novalidate>
+                <label class="sr-only" for="password-input">Password to estimate</label>
+                <input id="password-input" type="password" autocomplete="off" placeholder="Type a sample password">
+                <button class="button button-secondary" type="submit">Check strength</button>
+              </form>
+              <p class="tool-disclaimer">Your input stays in this page and is cleared when you leave. Don't enter a password you currently use.</p>
+              <div id="password-result" class="result-box" aria-live="polite" hidden></div>
+            </article>
+          </div>
+        </section>
+
+        <footer class="page-footer">
+          <span>WebGuard <span class="footer-dot">·</span> Simple habits, safer browsing</span>
+          <span>Educational guidance only — no security check can guarantee safety.</span>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
